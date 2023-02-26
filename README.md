@@ -6,7 +6,7 @@ On the New era of self driving technology automotive security has become one of 
 - Network Topology
 - Can-Bus
   - it's Other Varients 
-- SocetCan, Interfacing
+- SocetCan
 - ICSim
 - Kayak
 - Attacks
@@ -57,3 +57,58 @@ A Serial CAN Communication
 - The Flex Ray Bus
   - High Speed Data Transfer Upto 10Mbps, Uses twisted wires to communicate, but can also used dual-channel communication.
 - Automotive Ethernet
+
+## SocketCan 
+SocketCan is a Linux Utility that combines/unifies all the CAN tools and it's diffrent interfaces to a uniques interface. It Can also be used to create tools for supporting CAN, that enables us to try diffrent Options on the Persisting Can Networks. SocketCan ties user to the Linux Netwroking Kernal making it possible for creating a sperate interface for unifying all the CAN Networks.
+A detailed writeup on Installing and Configuring SocketCan is given on it's Official [Github](https://github.com/linux-can/socketcand)
+
+## ICSim
+To practice CAN-Bus exploitation we will be using an ICSim package from Craig Smith. ICSim includes a dashboard with speedometer, door lock
+indicators, turn signal indicators and a control panel. The control panel allows the user to interact with the simulated automobile network, applying
+acceleration, brakes, controlling the door locks and turn signals.
+### Installing ICSim
+
+You will need:
+* SDL2
+* SDL2_Image
+* can-utils
+
+You can get can-utils from github or on Ubuntu you may run the follwoing
+
+```
+  sudo apt-get install libsdl2-dev libsdl2-image-dev can-utils  
+```
+
+You can run the following commands to setup a virtual can interface
+
+```
+  sudo modprobe can
+  sudo modprobe vcan
+  sudo ip link add dev vcan0 type vcan
+  sudo ip link set up vcan0
+```
+
+If you type ifconfig vcan0 you should see a vcan0 interface. A setup_vcan.sh file has also been provided with this
+repo.
+
+**Usage**
+
+Default operations:
+
+Start the Instrument Cluster (IC) simulator:
+
+```
+  ./icsim vcan0
+```
+
+Then startup the controls
+
+```
+  ./controls vcan0
+```
+<table align="center">
+<tr>
+<td><img src="https://user-images.githubusercontent.com/100958162/221443075-da04eb22-d9a1-48c4-b414-d71bff62f33a.png" width ="100%" height="80%"></td>
+<td><img src="https://user-images.githubusercontent.com/100958162/221443109-0245da80-a0f4-47a2-b0fc-8660d29b5fb3.png" width="50%" height="50%"></td>
+</tr>
+</table>
