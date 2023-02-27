@@ -211,3 +211,6 @@ canplayer -I candump-2023-02-27_211403.log
   - The ID of the Dat is 244 and the last 3 bytes of data controls the actual speed in hex format.
   - I created a [script](https://github.com/Drupad-DeV/Automotive-Security/blob/main/speed.sh) that automates this whole process. 
   
+Here is the Demo of the script being executed.
+
+![github](https://user-images.githubusercontent.com/100958162/221551446-13dafbc0-f9cd-4f91-8909-fe7e0a8fe384.gif)
