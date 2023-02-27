@@ -204,3 +204,10 @@ This Logs the data into a file. Which can be Later Replayed Using Canplayer
 ```sh
 canplayer -I candump-2023-02-27_211403.log 
 ```
+## Targeted Node attack
+- In this attack we target a single node to be exploted.
+- On Ananlysing the Data having the arbitary ID of the Target we identify the specific byte in Data which when changed alters the working of the Sensors or correspoding activity in the Car.
+- On the Example below we are targeting the NODE that controls the Speed and RPM of the Cluster
+  - The ID of the Dat is 244 and the last 3 bytes of data controls the actual speed in hex format.
+  - I created a [script](https://github.com/Drupad-DeV/Automotive-Security/blob/main/speed.sh) that automates this whole process. 
+  
